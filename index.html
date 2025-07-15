@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Vivir con Lupus • LupusPattern</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-white text-gray-800 font-sans">
+
+  <!-- Hero -->
+  <section class="relative h-screen bg-cover bg-center flex items-center justify-center text-center text-white" style="background-image: url('fuerza_cinta.jpg');">
+    <div class="absolute inset-0 bg-black bg-opacity-60"></div>
+    <div class="relative z-10 px-6 max-w-3xl">
+      <h1 class="text-4xl md:text-5xl font-bold mb-6">Vivir con Lupus no debería ser una lucha solitaria</h1>
+      <p class="text-lg md:text-xl mb-8">Descubre cómo nuestra solución ayuda a prevenir brotes y mejora tu calidad de vida.</p>
+      <a href="#contacto" class="bg-purple-600 hover:bg-purple-700 text-white py-3 px-6 rounded-lg font-semibold transition">Contáctanos</a>
+    </div>
+  </section>
+
+  <!-- Sobre la solución -->
+  <section class="py-16 px-6 md:px-12 bg-gray-50 text-center">
+    <h2 class="text-3xl font-bold mb-6">¿Qué ofrecemos?</h2>
+    <p class="text-lg mb-10 max-w-2xl mx-auto">
+      Una herramienta innovadora basada en inteligencia artificial que identifica desencadenantes, predice brotes y te acompaña día a día en la gestión de tu Lupus.
+    </p>
+
+    <div class="grid md:grid-cols-3 gap-8 mt-12">
+      <div class="bg-white rounded-xl shadow-lg p-6">
+        <img src="rosacea.jpg" alt="Rostro con rosácea" class="rounded-lg h-48 w-full object-cover mb-4">
+        <h3 class="font-semibold text-xl mb-2">Monitoreo de síntomas</h3>
+        <p>Control diario de signos físicos, emocionales y ambientales.</p>
+      </div>
+      <div class="bg-white rounded-xl shadow-lg p-6">
+        <img src="mano_cinta.jpg" alt="Mano con cinta" class="rounded-lg h-48 w-full object-cover mb-4">
+        <h3 class="font-semibold text-xl mb-2">Prevención proactiva</h3>
+        <p>Alertas personalizadas para prevenir brotes antes de que ocurran.</p>
+      </div>
+      <div class="bg-white rounded-xl shadow-lg p-6">
+        <img src="fuerza_cinta.jpg" alt="Fuerza y comunidad" class="rounded-lg h-48 w-full object-cover mb-4">
+        <h3 class="font-semibold text-xl mb-2">Apoyo constante</h3>
+        <p>Consejos, comunidad y seguimiento para una vida más plena.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Formulario de contacto -->
+  <section id="contacto" class="py-16 px-6 md:px-12 bg-purple-50">
+    <div class="max-w-2xl mx-auto text-center">
+      <h2 class="text-3xl font-bold mb-6 text-purple-800">¿Te interesa formar parte del cambio?</h2>
+      <p class="mb-8 text-lg text-purple-700">Déjanos tus datos y nos pondremos en contacto contigo.</p>
+
+      <form action="https://example.com/api/contact" method="POST" class="bg-white shadow-md rounded-xl p-8 space-y-6 text-left">
+        <div>
+          <label for="nombre" class="block text-sm font-medium text-gray-700">Nombre</label>
+          <input type="text" name="nombre" id="nombre" required class="mt-1 block w-full p-3 border border-gray-300 rounded-md shadow-sm focus:ring-purple-500 focus:border-purple-500">
+        </div>
+
+        <div>
+          <label for="email" class="block text-sm font-medium text-gray-700">Correo electrónico</label>
+          <input type="email" name="email" id="email" required class="mt-1 block w-full p-3 border border-gray-300 rounded-md shadow-sm focus:ring-purple-500 focus:border-purple-500">
+        </div>
+
+        <div>
+          <label for="mensaje" class="block text-sm font-medium text-gray-700">Mensaje</label>
+          <textarea name="mensaje" id="mensaje" rows="4" required class="mt-1 block w-full p-3 border border-gray-300 rounded-md shadow-sm focus:ring-purple-500 focus:border-purple-500"></textarea>
+        </div>
+
+        <button type="submit" class="w-full bg-purple-600 text-white py-3 px-4 rounded-lg font-semibold hover:bg-purple-700 transition">Enviar</button>
+      </form>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="bg-gray-800 text-white py-6 text-center">
+    <p>Contacto: <a href="mailto:lupus@founderz.com" class="underline">lupus@founderz.com</a></p>
+    <p class="text-sm mt-2">© 2025 - Proyecto AI T.H.I.N.K.</p>
+  </footer>
+
+  <!-- Chatbot flotante -->
+  <button id="chatButton" class="fixed bottom-6 right-6 bg-purple-600 hover:bg-purple-700 text-white w-14 h-14 rounded-full flex items-center justify-center shadow-lg focus:outline-none text-2xl">💬</button>
+
+  <div id="chatWindow" class="fixed bottom-24 right-6 w-80 max-h-[70vh] bg-white border border-gray-300 rounded-xl shadow-lg flex flex-col hidden">
+    <!-- Header -->
+    <div class="bg-purple-600 text-white p-3 rounded-t-xl flex justify-between items-center">
+      <span class="font-semibold">Lupus Chatbot</span>
+      <button id="closeChat" class="text-white text-xl leading-none">✕</button>
+    </div>
+    <!-- Chat body -->
+    <div id="chatBody" class="flex-1 overflow-y-auto p-4 space-y-4 text-sm"></div>
+    <!-- Input -->
+    <form id="chatForm" class="border-t border-gray-200 flex">
+      <input type="text" id="chatInput" placeholder="Escribe tu pregunta..." class="flex-1 p-2 text-sm focus:outline-none">
+      <button type="submit" class="bg-purple-600 hover:bg-purple-700 text-white px-3">→</button>
+    </form>
+  </div>
+
+  <script>
+    // Mostrar/Ocultar ventana de chat
+    const chatBtn = document.getElementById('chatButton');
+    const chatWin = document.getElementById('chatWindow');
+    const closeChat = document.getElementById('closeChat');
+
+    chatBtn.addEventListener('click', () => chatWin.classList.toggle('hidden'));
+    closeChat.addEventListener('click', () => chatWin.classList.add('hidden'));
+
+    // Lógica simple del chatbot
+    const chatForm = document.getElementById('chatForm');
+    const chatInput = document.getElementById('chatInput');
+    const chatBody = document.getElementById('chatBody');
+
+    const responses = [
+      {keywords: ['síntoma','sintoma','symptom'], answer: 'Los síntomas comunes incluyen fatiga, fiebre baja, dolor articular y erupciones cutáneas en forma de mariposa. Cada persona es diferente, por lo que es importante llevar un registro.'},
+      {keywords: ['tratamiento','treatment','medicación','medicacion'], answer: 'El tratamiento depende de cada caso y puede incluir antiinflamatorios, inmunosupresores o antipalúdicos. Siempre consulta a tu reumatólogo.'},
+      {keywords: ['brote','flare'], answer: 'Un brote es un empeoramiento temporal de los síntomas. Mantener un registro diario ayuda a identificar desencadenantes y prevenirlos.'},
+      {keywords: ['estres','estrés','stress'], answer: 'El estrés puede desencadenar brotes. Practicar técnicas de relajación y dormir bien puede ayudar a reducir su impacto.'},
+      {keywords: ['dieta','alimentacion','alimentación','comida','food'], answer: 'No hay una dieta única, pero se recomienda una alimentación equilibrada rica en frutas, verduras y omega‑3. Evitar el exceso de sol y alcohol también ayuda.'},
+      {keywords: ['ejercicio','exercise','actividad física'], answer: 'El ejercicio moderado (por ejemplo yoga o natación) puede reducir la rigidez y mejorar el estado de ánimo. Ajusta la intensidad según tus niveles de energía.'},
+      {keywords: ['doctor','médico','medico','reumatólogo','reumatologo'], answer: 'Visita regularmente a tu reumatólogo y comparte tus registros de LupusPattern para mejorar el seguimiento de tu tratamiento.'},
+    ];
+
+    function addMessage(text, sender='bot') {
+      const msg = document.createElement('div');
+      msg.className = sender === 'user' ? 'self-end text-right' : 'self-start';
+      msg.innerHTML = `<span class="${sender==='user' ? 'bg-purple-600 text-white' : 'bg-gray-200 text-gray-800'} inline-block px-3 py-2 rounded-lg max-w-[75%]">${text}</span>`;
+      chatBody.appendChild(msg);
+      chatBody.scrollTop = chatBody.scrollHeight;
+    }
+
+    chatForm.addEventListener('submit', e => {
+      e.preventDefault();
+      const question = chatInput.value.trim();
+      if (!question) return;
+      addMessage(question, 'user');
+      chatInput.value = '';
+
+      // Buscar respuesta
+      let found = false;
+      const lowerQ = question.toLowerCase();
+      for (const r of responses) {
+        if (r.keywords.some(k => lowerQ.includes(k))) {
+          addMessage(r.answer);
+          found = true;
+          break;
+        }
+      }
+      if (!found) {
+        addMessage('Lo siento, aún estoy aprendiendo. Te sugiero consultar a tu profesional de salud o escribir otra pregunta.');
+      }
+    });
+  </script>
+
+</body>
+</html>
